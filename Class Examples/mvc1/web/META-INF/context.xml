@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/mvc1" >
+    <Resource name="ProjectJWeb" auth="Container"
+        type="javax.sql.DataSource" username="sa" password="123456"
+        driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        url="jdbc:sqlserver://localhost:1433;databaseName=ProjectJWeb"
+        
+    />
+</Context>

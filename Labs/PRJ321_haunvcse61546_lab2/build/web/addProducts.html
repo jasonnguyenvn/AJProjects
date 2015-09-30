@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Add New Products</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h3>Add product</h3>
+        <form action="ProductController" method="POST">
+            <table>
+                <tr>
+                    <td style="text-align: right" >
+                        Code:
+                    </td>
+                    <td style="text-align: left" >
+                        <input style="width:150px;" type="text" name="txtCode" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right" >
+                        Name:
+                    </td>
+                    <td style="text-align: left" >
+                        <input style="width:400px;" type="text" name="txtName" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right" >
+                        Description:
+                    </td>
+                    <td style="text-align: left" >
+                        <textarea name="txtDescription" rows="8" cols="60">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right" >
+                        Price:
+                    </td>
+                    <td style="text-align: left" >
+                        <input style="width:70px;" type="text" name="txtPrice" value="" />(USD)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right" >
+                        Category:
+                    </td>
+                    <td style="text-align: left" >
+                        <select name="cbCategory">
+                            <option>Beverage</option>
+                            <option>Food</option>
+                            <option>Meat</option>
+                            <option>Vegetables</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right" >
+                        
+                    </td>
+                    <td style="text-align: right" >
+                        
+                        <input type="submit" value="Save" name="btnSave" />
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="index.html">Homepage</a>
+    </body>
+</html>

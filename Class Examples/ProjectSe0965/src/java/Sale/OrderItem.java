@@ -1,0 +1,91 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package Sale;
+
+import java.util.Objects;
+
+/**
+ *
+ * @author Hau
+ */
+public class OrderItem {
+    private int orderID;
+    private String title;
+    private float price;
+    private int quantity;
+
+    public OrderItem() {
+    }
+
+    public OrderItem(int orderID, String title, float price, int quantity) {
+        this.orderID = orderID;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    
+    public OrderItem(String title, float price, int quantity) {
+        this.orderID = -1;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }    
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.title);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OrderItem other = (OrderItem) obj;
+        return Objects.equals(this.title, other.title);
+    }
+    
+    
+    
+}

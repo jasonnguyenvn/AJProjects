@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>AdminControllerServlet</servlet-name>
+        <servlet-class>Controllers.AdminControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>Authenrization.AuthServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>adminResources.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAuthErrorServlet</servlet-name>
+        <servlet-class>Authenrization.ShowAuthErrorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminControllerServlet</servlet-name>
+        <url-pattern>/admin/AdminControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/admin/AuthServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/admin/DashboardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAuthErrorServlet</servlet-name>
+        <url-pattern>/admin/ShowAuthErrorServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/400.html</location>
+    </error-page>
+    <security-constraint>
+        <display-name>Constraint1</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin Auth</web-resource-name>
+            <description>Authentication for admin page</description>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>user</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/invalid.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>The basic User of System</description>
+        <role-name>user</role-name>
+    </security-role>
+    <security-role>
+        <description>Administrator of System</description>
+        <role-name>admin</role-name>
+    </security-role>
+</web-app>
