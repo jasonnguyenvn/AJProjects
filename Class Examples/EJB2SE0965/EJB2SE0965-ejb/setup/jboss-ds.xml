@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE datasources
+    PUBLIC "-//JBoss//DTD JBOSS JCA Config 6.0//EN"
+    "http://www.jboss.org/j2ee/dtd/jboss-ds_6_0.dtd">
+<datasources>
+    <local-tx-datasource>
+        <jndi-name>EJB2DS</jndi-name>
+        <connection-url>jdbc:sqlserver://localhost:1433;databaseName=ProjectJWeb</connection-url>
+        <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+        <user-name>sa</user-name>
+        <password>123456</password>
+    </local-tx-datasource>
+</datasources>
