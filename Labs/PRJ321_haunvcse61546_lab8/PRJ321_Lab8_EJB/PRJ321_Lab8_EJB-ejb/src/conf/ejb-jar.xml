@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ejb-jar version="2.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
   <enterprise-beans>
-  </enterprise-beans>
-</ejb-jar>
+        <session>
+            <display-name>UserSessionBeanSB</display-name>
+            <ejb-name>UserSessionBean</ejb-name>
+            <home>com.lab8.sessions.UserSessionBeanRemoteHome</home>
+            <remote>com.lab8.sessions.UserSessionBeanRemote</remote>
+            <local-home>com.lab8.sessions.UserSessionBeanLocalHome</local-home>
+            <local>com.lab8.sessions.UserSessionBeanLocal</local>
+            <ejb-class>com.lab8.sessions.UserSessionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>UserSessionBean</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        </assembly-descriptor>
+    </ejb-jar>
