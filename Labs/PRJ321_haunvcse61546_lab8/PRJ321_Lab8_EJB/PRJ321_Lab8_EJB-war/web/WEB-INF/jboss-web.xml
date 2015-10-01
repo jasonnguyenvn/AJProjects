@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+  <context-root>/PRJ321_Lab8_EJB-war</context-root>
+</jboss-web>
