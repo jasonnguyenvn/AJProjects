@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jboss PUBLIC
+      "-//JBoss//DTD JBOSS 6.0//EN"
+      "http://www.jboss.org/j2ee/dtd/jboss_6_0.dtd">
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>UserSessionBean</ejb-name>
+      <jndi-name>UserSbJNDI</jndi-name>
+      <local-jndi-name>UserSbLocalJNDI</local-jndi-name>
+      <resource-ref>
+        <res-ref-name>dataSource</res-ref-name>
+        <jndi-name>java:/AcountTbJNDI</jndi-name>
+      </resource-ref>
+    </session>
+  </enterprise-beans>
+</jboss>
