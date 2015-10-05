@@ -8,26 +8,29 @@ package sample.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sample.sesssions.CartSessionBeanLocal;
 
 /**
  *
  * @author Hau
  */
-public class ProcessServlet extends HttpServlet {
-    private final String loginServlet = "LoginServlet";
-    private final String searchSearchServlet = "SearchServlet";
-    private final String addItemServlet = "AddItemServlet";
-    private final String viewPage = "view.jsp";
-    private final String removeItemsServlet = "RemoveItemsServlet";
+public class AddItemServlet extends HttpServlet {
+    
+        private final String shoppingPage = "shopping.html";
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -36,33 +39,36 @@ public class ProcessServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String button = request.getParameter("btAction");
-            
-            if(button.equals("Login")) {
-                RequestDispatcher dr = request.getRequestDispatcher(loginServlet);
-                dr.forward(request, response);
-            } else if (button.equals("Search")) {
-                RequestDispatcher dr = request.getRequestDispatcher(searchSearchServlet);
-                dr.forward(request, response);
-            } else if (button.equals("Add Book to Your Cart")) {
-                RequestDispatcher dr = request.getRequestDispatcher(addItemServlet);
-                dr.forward(request, response);
-            } else if (button.equals("view")) {
-                RequestDispatcher dr = request.getRequestDispatcher(viewPage);
-                dr.forward(request, response);
-            } else if (button.equals("Remove Items")) {
-                RequestDispatcher dr = request.getRequestDispatcher(removeItemsServlet);
-                dr.forward(request, response);
+            HttpSession session = request.getSession();
+            CartSessionBeanLocal cart = (CartSessionBeanLocal) session.getAttribute("CART");
+            if (cart == null) {
+                try {
+                    Context context = new InitialContext();
+                    
+                    Object obj = context.lookup("CartLocalJNDI");
+                    cart = (CartSessionBeanLocal) obj;
+                } catch (NamingException ex) {
+                    log(ex.getMessage());
+                }
+                
             }
-            
-            
-        } finally {            
+            if (cart != null) {
+                String tile = request.getParameter("cboBook");
+                cart.addItemToCart(tile);
+                session.setAttribute("CART", cart);
+            }
+
+            RequestDispatcher rd = request.getRequestDispatcher(shoppingPage);
+            rd.forward(request, response);
+        } finally {
             out.close();
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

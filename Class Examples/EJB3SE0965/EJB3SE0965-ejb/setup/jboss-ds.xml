@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
   <local-tx-datasource>
-    <jndi-name>UserJNDI</jndi-name>
+    <jndi-name>UserTbJNDI</jndi-name>
     <connection-url>jdbc:sqlserver://localhost:1433;databaseName=ProjectJWeb</connection-url>
     <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
     <user-name>sa</user-name>

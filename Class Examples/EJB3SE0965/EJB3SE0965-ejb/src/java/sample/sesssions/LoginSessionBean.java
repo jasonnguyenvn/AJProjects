@@ -18,7 +18,7 @@ import sample.user.UserDAO;
  */
 @Stateless
 public class LoginSessionBean implements LoginSessionBeanLocal, LoginSessionBeanRemote {
-    @Resource(name = "dataSource", mappedName = "java:UserJNDI")
+    @Resource(name = "dataSource", mappedName = "java:UserTbJNDI")
     private DataSource dataSource;
     
     

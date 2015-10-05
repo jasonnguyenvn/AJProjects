@@ -10,8 +10,13 @@
       <local-jndi-name>LoginLocalJNDI</local-jndi-name>
       <resource-ref>
         <res-ref-name>dataSource</res-ref-name>
-        <jndi-name>java:/UserJNDI</jndi-name>
+        <jndi-name>java:/UserTbJNDI</jndi-name>
       </resource-ref>
+    </session>
+    <session>
+        <ejb-name>CartSessionBean</ejb-name>
+        <jndi-name>CartJNDI</jndi-name>
+        <local-jndi-name>CartLocalJNDI</local-jndi-name>
     </session>
   </enterprise-beans>
 </jboss>
