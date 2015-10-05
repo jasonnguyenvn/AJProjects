@@ -12,6 +12,7 @@
         <title>Your Cart</title>
     </head>
     <body>
+        <h1>Welcome, ${sessionScope.USER} </h1>
         <h1>Your cart inclues</h1>
         <c:set var="cart" value="${sessionScope.CART}" />
         

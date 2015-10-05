@@ -19,12 +19,10 @@
         <form action="ProcessServlet">
             Last name: <input type="text" name="txtSearchValue" value="" /><br/>
             <input type="submit" value="Search" name="btAction" />
-        </form>
+        </form><br/>
+        <a href="shopping.html">Click here to buy books</a>
         
         <c:set var="searchValue" value="${param.txtSearchValue}" />
-        <c:if test="${empty searchValue}" >
-            test
-        </c:if>
         <c:if test="${not empty searchValue}" >
             <h2>Search Result</h2>
             <c:set var="userList" value="${ requestScope.SEARCHLIST }" />
